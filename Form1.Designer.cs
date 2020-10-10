@@ -42,6 +42,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ColorButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.SuspendLayout();
@@ -169,11 +171,32 @@
             this.comboBox1.TabIndex = 16;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(156, 26);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Format:\r\nn.n° [ n.n\' { n.n\" n.n\" n.n\" .... } ]";
+            // 
+            // ColorButton
+            // 
+            this.ColorButton.Location = new System.Drawing.Point(359, 44);
+            this.ColorButton.Name = "ColorButton";
+            this.ColorButton.Size = new System.Drawing.Size(121, 26);
+            this.ColorButton.TabIndex = 18;
+            this.ColorButton.Text = "Zapisz kolorek";
+            this.ColorButton.UseVisualStyleBackColor = true;
+            this.ColorButton.Click += new System.EventHandler(this.ColorButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 187);
+            this.Controls.Add(this.ColorButton);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.GradOutLabel);
@@ -188,7 +211,7 @@
             this.MaximumSize = new System.Drawing.Size(528, 225);
             this.MinimumSize = new System.Drawing.Size(528, 225);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GradCalc";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -214,6 +237,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ColorButton;
     }
 }
 

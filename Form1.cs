@@ -13,7 +13,7 @@ namespace GradCalc
     interface IRectangle<Rectangle> { };
     public partial class Form1 : Form
     {
-        Color curColor = Color.Blue;
+        Color curColor;
         public List<Color> getAllColors()
         {
             List<Color> l = new List<Color>();
@@ -27,8 +27,17 @@ namespace GradCalc
             InitializeComponent();
             Kolorki = getAllColors();
             this.comboBox1.DataSource = Kolorki;
+            curColor = Properties.Settings.Default.SavedColor;
+            this.comboBox1.SelectedItem = Properties.Settings.Default.SavedColor;
             this.Load += (o, e) => {this.RandomNumOutLabel.Text = "";};
-            this.Paint += (o, e) => {/*Tu będzie kod rysowania różnych rzeczy!*/};
+            this.Paint += (o, e) => 
+            {
+                /*Tu będzie kod rysowania różnych rzeczy!*/
+                using(Pen p = new Pen(curColor))
+                {
+                    e.Graphics.DrawRectangle(p, 11, 130, 160, 31);
+                }
+            };
             this.splitContainer1.Panel1.Paint += (o, e) =>
             {
                 using(Pen p = new Pen(curColor))
@@ -56,6 +65,12 @@ namespace GradCalc
         {
             curColor = (Color)((ComboBox)sender).SelectedItem;
             this.Refresh();
+        }
+
+        private void ColorButton_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SavedColor = curColor;
+            Properties.Settings.Default.Save();
         }
     }
 }

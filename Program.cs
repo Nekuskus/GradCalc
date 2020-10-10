@@ -16,10 +16,10 @@ namespace GradCalc
     }
     public class Grad : Num
     {
-        public Grad(decimal godziny, decimal minuty, decimal sekundy, params decimal[] reszta)
+        public Grad(params decimal[] wszystko)
         {
             Wszystko = new List<Decimal>();
-            Wszystko.AddRange(new decimal[] {godziny, minuty, sekundy}.Concat(reszta));
+            Wszystko.AddRange(wszystko);
         }
         public Grad(Deg d)
         {
@@ -28,15 +28,15 @@ namespace GradCalc
         public Deg toDeg()
         {
             return new Deg(this);
-            return new Deg(Wszystko[0], Wszystko[1], Wszystko[2], Wszystko.GetRange(3, Wszystko.Count-3).ToArray());
+            //return new Deg(Wszystko[0], Wszystko[1], Wszystko[2], Wszystko.GetRange(3, Wszystko.Count-3).ToArray());
         }
     }
     public class Deg : Num
     {
-        public Deg(decimal godziny, decimal minuty, decimal sekundy, params decimal[] reszta)
+        public Deg(params decimal[] wszystko)
         {
             Wszystko = new List<Decimal>();
-            Wszystko.AddRange(new decimal[] { godziny, minuty, sekundy }.Concat(reszta));
+            Wszystko.AddRange(wszystko);
         }
         public Deg(Grad g)
         {
@@ -45,7 +45,7 @@ namespace GradCalc
         public Grad toGrad()
         {
             return new Grad(this);
-            return new Grad(Wszystko[0], Wszystko[1], Wszystko[2], Wszystko.GetRange(3, Wszystko.Count-3).ToArray());
+            //return new Grad(Wszystko[0], Wszystko[1], Wszystko[2], Wszystko.GetRange(3, Wszystko.Count-3).ToArray());
         }
     }
     static class Program
